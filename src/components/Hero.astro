@@ -1,0 +1,170 @@
+---
+---
+<section id="hero" class="hero">
+	<div class="hero-inner">
+		<div class="hero-text-block">
+			<div class="badge animate-fade-in">devxsota.cloud</div>
+			<h1 class="animate-fade-in delay-1">Hola, soy Daniel desarrollador <span class="highlight">Java Backend</span></h1>
+			<p class="animate-fade-in delay-2">
+				Me especializo en el diseño y despliegue de arquitecturas distribuidas, 
+				<strong>Microservicios</strong> robustos y APIs de alto rendimiento. Enfocado en escribir 
+				código limpio, escalable y preparado para entornos Cloud Native.
+			</p>
+			<div class="actions animate-fade-in delay-3">
+				<a href="#skills" class="btn primary">Ver Portafolio</a>
+				<a href="#contact" class="btn secondary">Contactar</a>
+			</div>
+		</div>
+
+		<div class="hero-image-block animate-fade-in delay-2">
+			<img src="/hero-illustration.svg" alt="Ilustración Backend devxsota" class="hero-svg" />
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero {
+		height: 100vh;
+		width: 100vw;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--bg-main);
+		position: relative;
+		left: 50%;
+		right: 50%;
+		margin-left: -50vw;
+		margin-right: -50vw;
+	}
+	
+	.hero-inner {
+		max-width: 900px; /* Ampliamos un poco el espacio para que quepan bien texto e imagen */
+		width: 100%;
+		padding: 0 20px;
+		display: flex;
+		flex-direction: row; /* Coloca texto e imagen uno al lado del otro */
+		align-items: center;
+		justify-content: space-between;
+		gap: 40px;
+		margin: 0 auto;
+	}
+
+	.hero-text-block {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 24px;
+	}
+
+	.hero-image-block {
+		flex: 1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.hero-svg {
+		width: 100%;
+		max-width: 380px; /* Controla el tamaño máximo del SVG */
+		height: auto;
+		/* Filtro opcional: añade un ligero brillo azul cian alrededor del SVG */
+		filter: drop-shadow(0 0 20px rgba(0, 180, 216, 0.15)); 
+	}
+
+	.badge {
+		background: rgba(0, 180, 216, 0.1);
+		color: var(--accent);
+		border: 1px solid var(--accent);
+		padding: 6px 14px;
+		border-radius: 20px;
+		font-size: 0.9rem;
+		font-weight: 600;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 700;
+		line-height: 1.2;
+		letter-spacing: -1.5px;
+	}
+	.highlight {
+		color: var(--accent);
+	}
+	p {
+		font-size: 1.15rem;
+		color: var(--text-secondary);
+		max-width: 550px;
+		line-height: 1.7;
+	}
+	.actions {
+		display: flex;
+		gap: 15px;
+		margin-top: 10px;
+	}
+	.btn {
+		padding: 12px 26px;
+		border-radius: 6px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: all 0.2s ease;
+		font-size: 0.95rem;
+	}
+	.btn.primary {
+		background: var(--accent);
+		color: #0d1b2a;
+	}
+	.btn.primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(0, 180, 216, 0.3);
+	}
+	.btn.secondary {
+		border: 1px solid var(--text-muted);
+		color: var(--text-primary);
+	}
+	.btn.secondary:hover {
+		border-color: var(--accent);
+		color: var(--accent);
+		background: rgba(0, 180, 216, 0.05);
+	}
+
+	/* ==========================================
+	   ✨ SISTEMA DE ANIMACIÓN EN CASCADA
+	   ========================================== */
+	.animate-fade-in {
+		opacity: 0;
+		will-change: transform, opacity;
+		animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	}
+
+	.delay-1 { animation-delay: 150ms; }
+	.delay-2 { animation-delay: 300ms; }
+	.delay-3 { animation-delay: 450ms; }
+
+	@keyframes fadeInUp {
+		0% {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* Responsive: En tablets o celulares, ponemos la imagen abajo */
+	@media (max-width: 768px) {
+		.hero-inner {
+			flex-direction: column;
+			text-align: left;
+			justify-content: center;
+			gap: 40px;
+			padding-top: 60px;
+		}
+		h1 {
+			font-size: 2.4rem;
+		}
+		.hero-svg {
+			max-width: 280px;
+		}
+	}
+</style>

@@ -1,0 +1,79 @@
+<---
+const skillCategories = [
+{
+title: "Core Backend",
+skills: ["Java 17/21", "Spring Boot 3", "Spring Cloud", "Hibernate / JPA"]
+},
+{
+title: "Arquitectura & Eventos",
+skills: ["Microservices", "REST APIs / gRPC", "Apache Kafka", "RabbitMQ"]
+},
+{
+title: "Infraestructura & Datos",
+skills: ["Docker / Kubernetes", "PostgreSQL / MySQL", "Redis (Caching)", "CI/CD Pipelines"]
+}
+];
+--->
+<section id="skills" class="skills-section">
+<h2 class="section-title">Habilidades Básicas</h2>
+<div class="grid">
+{skillCategories.map(category => (
+<div class="card">
+<h3>{category.title}</h3>
+<div class="tags">
+{category.skills.map(skill => (
+<span class="tag">{skill}</span>
+))}
+</div>
+</div>
+))}
+</div>
+
+</section>
+<style>
+.section-title {
+font-size: 1.5rem;
+margin-bottom: 25px;
+position: relative;
+display: inline-block;
+}
+.section-title::after {
+content: '';
+position: absolute;
+left: 0;
+bottom: -6px;
+width: 40px;
+height: 3px;
+background: var(--accent);
+}
+.grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+gap: 20px;
+}
+.card {
+background: var(--bg-card);
+border: 1px solid #233149;
+padding: 20px;
+border-radius: 8px;
+}
+.card h3 {
+font-size: 1.1rem;
+margin-bottom: 15px;
+color: var(--text-primary);
+}
+.tags {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+}
+.tag {
+background: rgba(255, 255, 255, 0.05);
+color: var(--text-secondary);
+padding: 4px 10px;
+border-radius: 4px;
+font-size: 0.85rem;
+font-family: 'JetBrains Mono', monospace;
+border: 1px solid rgba(255, 255, 255, 0.08);
+}
+</style>

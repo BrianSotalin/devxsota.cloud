@@ -1,0 +1,126 @@
+---
+// Leemos las variables del archivo .env
+const email = import.meta.env.PUBLIC_EMAIL;
+const linkedin = import.meta.env.PUBLIC_LINKEDIN;
+const github = import.meta.env.PUBLIC_GITHUB;
+---
+<section id="contact" class="contact-section">
+	<h2 class="section-title">Contacto</h2>
+	<p>
+		¿Estás buscando un desarrollador para fortalecer tu equipo de backend o necesitas ayuda para escalar tus microservicios? Conversemos.
+	</p>
+	
+	<div class="contact-links">
+        <a href={`mailto:${email}`} class="contact-card">
+			<div class="card-left">
+				<span class="material-icons icon-email">email</span>
+				<span class="label">Email</span>
+			</div>
+		</a>
+
+        <a href={linkedin} target="_blank" rel="noopener noreferrer" class="contact-card">
+			<div class="card-left">
+				<span class="material-icons icon-linkedin">account_circle</span>
+				<span class="label">LinkedIn</span>
+			</div>
+		</a>
+
+        <a href={github} target="_blank" rel="noopener noreferrer" class="contact-card">
+			<div class="card-left">
+				<span class="material-icons icon-github">code</span>
+				<span class="label">GitHub</span>
+			</div>
+
+		</a>
+	</div>
+</section>
+
+<style>
+	.contact-section {
+		padding: 20px 0;
+	}
+	.section-title {
+		font-size: 1.5rem;
+		margin-bottom: 25px;
+		position: relative;
+		display: inline-block;
+	}
+	.section-title::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -6px;
+		width: 40px;
+		height: 3px;
+		background: var(--accent);
+	}
+	p {
+		color: var(--text-secondary);
+		line-height: 1.6;
+		margin-bottom: 30px;
+		font-size: 1rem;
+	}
+	.contact-links {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+	.contact-card {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background: var(--bg-card);
+		border: 1px solid #233149;
+		padding: 16px 20px;
+		border-radius: 8px;
+		text-decoration: none;
+		color: var(--text-primary);
+		transition: all 0.2s ease;
+	}
+	.contact-card:hover {
+		border-color: var(--accent);
+		transform: translateX(4px);
+		background: rgba(0, 180, 216, 0.02);
+	}
+	
+	/* Agrupador para mantener alineado el ícono y el texto de la izquierda */
+	.card-left {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+
+	/* Estilos comunes de Material Icons */
+	.material-icons {
+		font-size: 1.3rem;
+		color: var(--text-muted);
+		transition: color 0.2s ease;
+	}
+	
+	/* Cambio de color sutil para los íconos al pasar el mouse por la tarjeta */
+	.contact-card:hover .material-icons {
+		color: var(--accent);
+	}
+
+	.label {
+		font-weight: 600;
+		font-size: 0.95rem;
+	}
+	.value {
+		color: var(--accent);
+		font-family: 'JetBrains Mono', monospace;
+		font-size: 0.9rem;
+	}
+
+	/* Ajuste responsivo para pantallas pequeñas */
+	@media (max-width: 600px) {
+		.contact-card {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 8px;
+		}
+		.value {
+			padding-left: 32px; /* Alineación limpia debajo del texto */
+		}
+	}
+</style>

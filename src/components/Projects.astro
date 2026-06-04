@@ -1,0 +1,120 @@
+---
+const vivero_web = import.meta.env.VIVERO_LINK;
+const vivero_github = import.meta.env.VIVERO_GITHUB;
+
+const projects = [
+	{
+		title: "Sistema de gestion de ventas para viveros",
+		description: "Microservicios con Spring Boot y Spring Cloud. Implementa comunicación asíncrona mediante Apache Kafka y resiliencia con Resilience4j.",
+		tags: ["Spring Boot", "Kafka", "PostgreSQL", "Docker"],
+		webLink: vivero_web,
+		githubLink: vivero_github
+	},
+	{
+		title: "API Gateway Empresarial(en desarrollo)",
+		description: "Punto único de entrada configurado para enrutamiento dinámico, limitación de tasa (Rate Limiting) y autenticación centralizada con JWT.",
+		tags: ["Spring Cloud Gateway", "Redis", "Java 17"],
+		webLink: "",
+		githubLink: ""
+	}
+];
+
+---
+<section id="projects" class="projects-section">
+	<h2 class="section-title">Proyectos</h2>
+	<div class="list">
+		{projects.map(project => (
+			<div class="project-item">
+				<div class="project-header">
+					<h3>{project.title}</h3>
+					<div class="links">
+						{/* Renderizado condicional: Solo se muestra si project.webLink tiene contenido */}
+						{project.webLink && (
+							<a href={project.webLink} target="_blank" rel="noopener noreferrer" aria-label="Pagina web">Web ↗</a>
+						)}
+						
+						{/* Renderizado condicional: Solo se muestra si project.githubLink tiene contenido */}
+						{project.githubLink && (
+							<a href={project.githubLink} target="_blank" rel="noopener noreferrer" aria-label="Repositorio">Github ↗</a>
+						)}
+					</div>
+				</div>
+				<p>{project.description}</p>
+				<div class="project-tags">
+					{project.tags.map(tag => (
+						<span class="p-tag">{tag}</span>
+					))}
+				</div>
+			</div>
+		))}
+	</div>
+</section>
+
+<style>
+	.section-title {
+		font-size: 1.5rem;
+		margin-bottom: 35px;
+		position: relative;
+		display: inline-block;
+	}
+	.section-title::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -6px;
+		width: 40px;
+		height: 3px;
+		background: var(--accent);
+	}
+	.list {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+	}
+	.project-item {
+		padding-bottom: 25px;
+		border-bottom: 1px solid #1b263b;
+		transition: all 0.2s ease;
+	}
+	.project-item:last-child {
+		border-bottom: none;
+	}
+	.project-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 10px;
+	}
+	.project-header h3 {
+		font-size: 1.3rem;
+		color: var(--text-primary);
+	}
+	.project-header a {
+		color: var(--accent);
+		text-decoration: none;
+		font-size: 0.9rem;
+		font-weight: 500;
+	}
+	.project-header a:hover {
+		text-decoration: underline;
+	}
+	p {
+		color: var(--text-secondary);
+		line-height: 1.6;
+		margin-bottom: 15px;
+		font-size: 1rem;
+	}
+	.project-tags {
+		display: flex;
+		gap: 8px;
+		flex-wrap: wrap;
+	}
+	.p-tag {
+		color: var(--accent);
+		font-family: 'JetBrains Mono', monospace;
+		font-size: 0.8rem;
+		background: rgba(0, 180, 216, 0.05);
+		padding: 2px 8px;
+		border-radius: 4px;
+	}
+</style>
