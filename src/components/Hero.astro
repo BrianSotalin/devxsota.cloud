@@ -11,7 +11,7 @@
 				código limpio, escalable y preparado para entornos Cloud Native.
 			</p>
 			<div class="actions animate-fade-in delay-3">
-				<a href="#skills" class="btn primary">Ver Portafolio</a>
+				<a href="#projects" class="btn primary">Ver Portafolio</a>
 				<a href="#contact" class="btn secondary">Contactar</a>
 			</div>
 		</div>
@@ -24,7 +24,7 @@
 
 <style>
 	.hero {
-		height: 100vh;
+		min-height: 100vh; /* Cambiado a min-height para permitir que el contenido estire la sección si falta espacio */
 		width: 100vw;
 		display: flex;
 		align-items: center;
@@ -35,14 +35,15 @@
 		right: 50%;
 		margin-left: -50vw;
 		margin-right: -50vw;
+		padding: 80px 0; /* Añade espacio arriba y abajo para que el contenido no pegue a los bordes de la pantalla */
 	}
 	
 	.hero-inner {
-		max-width: 900px; /* Ampliamos un poco el espacio para que quepan bien texto e imagen */
+		max-width: 900px;
 		width: 100%;
 		padding: 0 20px;
 		display: flex;
-		flex-direction: row; /* Coloca texto e imagen uno al lado del otro */
+		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
 		gap: 40px;
@@ -62,13 +63,13 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		width: 100%; /* Asegura que no se desborde del contenedor */
 	}
 
 	.hero-svg {
 		width: 100%;
-		max-width: 380px; /* Controla el tamaño máximo del SVG */
+		max-width: 380px;
 		height: auto;
-		/* Filtro opcional: añade un ligero brillo azul cian alrededor del SVG */
 		filter: drop-shadow(0 0 20px rgba(0, 180, 216, 0.15)); 
 	}
 
@@ -151,20 +152,44 @@
 		}
 	}
 
-	/* Responsive: En tablets o celulares, ponemos la imagen abajo */
+	/* ==========================================
+	   📱 RESPONSIVE DESIGN (TABLETS / MÓVILES)
+	   ========================================== */
 	@media (max-width: 768px) {
+		.hero {
+			padding: 60px 0; /* Ajusta el relleno superior en móviles */
+		}
 		.hero-inner {
-			flex-direction: column;
+			flex-direction: column-reverse; /* 🔄 Invertido: coloca la imagen ARRIBA del texto para mejor UX móvil */
 			text-align: left;
 			justify-content: center;
-			gap: 40px;
-			padding-top: 60px;
+			gap: 30px;
+		}
+		.hero-text-block {
+			align-items: flex-start;
+			width: 100%;
 		}
 		h1 {
-			font-size: 2.4rem;
+			font-size: 2.2rem; /* Tamaño de fuente más cómodo para pantallas chicas */
+		}
+		p {
+			font-size: 1.05rem;
+		}
+		.actions {
+			width: 100%;
+			flex-direction: column; /* Botones apilados uno sobre otro en móviles */
+			gap: 12px;
+		}
+		.btn {
+			text-align: center;
+			width: 100%; /* Botones de ancho completo para facilitar el clic táctil */
+		}
+		.hero-image-block {
+			max-width: 220px; /* 🎯 Reducción estricta del bloque contenedor en móviles */
+			margin: 0 auto;  /* Centra la imagen horizontalmente */
 		}
 		.hero-svg {
-			max-width: 280px;
+			max-width: 100%; /* Forzado a respetar el tamaño de su padre */
 		}
 	}
 </style>
